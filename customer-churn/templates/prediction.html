@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block link%} 
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/newPrediction.css')}}">
+{% endblock %}
+{% block body %}
+<div class="prediction-text">
+    <p> This customer will probably <b>{{prediction_value}} churn</b></p>
+</div>
+{% endblock %}
+{% block coffee %}
+<a href="https://www.buymeacoffee.com/Ghorai" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee"></a> 
+{% endblock %}

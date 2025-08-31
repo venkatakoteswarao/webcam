@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form action="{{url_for('predict')}}" method="post">
+    <div class="row gx-sm-2 input-options">
+        <div class="col-6 input-section-container">
+            <label for="Dependents">Dependents : </label>
+            <select class="form-control" name="Dependents" id="" required>
+                {% for Dependents in DependentsList %}
+                    <option value="{{Dependents}}">{{Dependents}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-6 input-section-container">
+            <label for="MonthlyCharges">MonthlyCharges : </label>
+            <input type="number" class="form-control" name ="MonthlyCharges" placeholder="Monthly Charges" required>
+        </div>
+    </div>
+    <div class="row gx-sm-2 input-options">
+        <div class="col-6 input-section-container">
+            <label for="StreamingTV">StreamingTV : </label>
+            <select class="form-control" name="StreamingTV" id="" required>
+                {% for StreamingTV in StreamingTVList %}
+                    <option value="{{StreamingTV}}">{{StreamingTV}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-6 input-section-container">
+            <label for="OnlineSecurity">OnlineSecurity : </label>
+            <select class="form-control" name="OnlineSecurity" id="" required>
+                {% for OnlineSecurity in OnlineSecurityList %}
+                    <option value="{{OnlineSecurity}}">{{OnlineSecurity}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="row gx-sm-2 input-options">
+        <div class="col-6 input-section-container">
+            <label for="InternetService">InternetService : </label>
+            <select class="form-control" name="InternetService" id="" required>
+                {% for InternetService in InternetServiceList %}
+                    <option value="{{InternetService}}">{{InternetService}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-6 input-section-container">
+            <label for="Contract">Contract : </label>
+            <select class="form-control" name="Contract" id="" required>
+                {% for Contract in ContractList %}
+                    <option value="{{Contract}}">{{Contract}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="button-div">
+        <button type="submit" class="button-class">PLAY</button>
+    </div>
+</form>
+{% endblock %}
+
+<!-- {% block image %}
+
+{% endblock %} -->
