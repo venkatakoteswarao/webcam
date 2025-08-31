@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  flask:
+    build: ./customer-churn
+    container_name: flask
+    expose:
+      - "5000"
+
+  springboot:
+    build: ./demo
+    container_name: springboot
+    expose:
+      - "9090"
+    depends_on:
+      - flask
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - springboot
+      - flask

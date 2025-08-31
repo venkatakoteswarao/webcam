@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #5563DE, #74ABE2);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #00000050;
+        }
+        p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        a {
+            padding: 10px 25px;
+            background-color: #FF6F61;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            background-color: #FF3B2E;
+        }
+    </style>
+</head>
+<body>
+<h1>Prediction Result</h1>
+<p th:text="'Prediction: ' + ${prediction_value}"></p>
+<a th:href="@{/}">Go Back</a>
+</body>
+</html>

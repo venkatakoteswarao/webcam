@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer Churn Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #74ABE2, #5563DE);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 30px;
+            text-shadow: 2px 2px #00000050;
+        }
+        form {
+            background: rgba(0,0,0,0.3);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        select, input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: none;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: #FF6F61;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+        }
+        button:hover {
+            background-color: #FF3B2E;
+        }
+    </style>
+</head>
+<body>
+<h1>Customer Churn Prediction</h1>
+
+<form th:action="@{/predict}" method="post">
+    <label>Dependents:</label>
+    <select name="Dependents">
+        <option th:each="d : ${DependentsList}" th:value="${d}" th:text="${d}"></option>
+    </select>
+
+    <label>Internet Service:</label>
+    <select name="InternetService">
+        <option th:each="i : ${InternetServiceList}" th:value="${i}" th:text="${i}"></option>
+    </select>
+
+    <label>Online Security:</label>
+    <select name="OnlineSecurity">
+        <option th:each="o : ${OnlineSecurityList}" th:value="${o}" th:text="${o}"></option>
+    </select>
+
+    <label>Contract:</label>
+    <select name="Contract">
+        <option th:each="c : ${ContractList}" th:value="${c}" th:text="${c}"></option>
+    </select>
+
+    <label>Streaming TV:</label>
+    <select name="StreamingTV">
+        <option th:each="s : ${StreamingTVList}" th:value="${s}" th:text="${s}"></option>
+    </select>
+
+    <label>Monthly Charges:</label>
+    <input type="number" step="0.01" name="MonthlyCharges"/>
+
+    <button type="submit">Predict</button>
+</form>
+</body>
+</html>
