@@ -13,7 +13,7 @@ import java.util.Map;
 @Controller
 public class PredictionController {
 
-    private final WebClient webClient = WebClient.create("http://nginx/api");
+    private final WebClient webClient = WebClient.create("http://127.0.0.1:5000");
 
 
     @GetMapping("/")
